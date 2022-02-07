@@ -10,8 +10,12 @@
         <h1>{{ $post->title }}</h1>
 
         @if ($post->category)
-            <h4>Categoria: {{ $post->category->name }}</h4>
+            <h4 class="d-inline-block mr-2">Categoria: {{ $post->category->name }}</h4>
         @endif
+
+        @foreach ($post->tags as $tag)
+            <span class="badge bg-primary mb-4">{{ $tag->name }}</span>
+        @endforeach
 
         <p>{{ $post->content }}</p>
 
