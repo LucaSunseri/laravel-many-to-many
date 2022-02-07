@@ -42,6 +42,18 @@
 
                 </select>
             </div>
+
+            <div class="form-group">
+                <p>Seleziona i Tag</p>
+                @foreach ($tags as $tag)
+                    <div class="custom-control custom-checkbox d-inline-block mr-3">
+                        <input type="checkbox" class="custom-control-input" name="tags[]" value="{{ $tag->id }}"
+                            id="tag-{{ $tag->id }}" @if (in_array($tag->id, old('tags', []))) checked @endif>
+                        <label class="custom-control-label" for="tag-{{ $tag->id }}">{{ $tag->name }}</label>
+                    </div>
+                @endforeach
+            </div>
+
             <button type="submit" class="btn btn-primary">Submit</button>
             <button type="reset" class="btn btn-dark">Reset</button>
         </form>
